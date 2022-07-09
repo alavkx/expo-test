@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { StyleSheet, Text, Pressable, View, ScrollView } from "react-native";
+import Sun from "./assets/radix-icons/double-arrow-left.svg";
 
 export default function App() {
   const [pressed, setPressed] = React.useState(false);
@@ -36,6 +37,7 @@ export default function App() {
           <Text style={styles.text}>
             {pressed ? "セクハラです" : "Press me"}
           </Text>
+          <Sun />
         </Pressable>
       </Card>
     </LinearGradient>
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
     borderColor: "#bbb",
     paddingHorizontal: 16,
     paddingVertical: 4,
+    backgroundColor: "hsl(344, 5%, 12%)",
   },
   text: {
     fontFamily: "300",
@@ -73,25 +76,13 @@ interface CardProps {
 function Card({ children }: CardProps) {
   return (
     //  this fucking gradient doesnt work
-    // <LinearGradient
-    //   style={cardStyles.background}
-    //   colors={[
-    //     "hsl(0, 0%, 22%)",
-    //     "hsl(344, 0%, 20%)",
-    //     "hsl(344, 0%, 18%)",
-    //     "hsl(344, 0%, 16%)",
-    //     "hsl(344, 0%, 14%)",
-    //     "hsl(344, 0%, 12%)",
-    //     "hsl(344, 0%, 10%)",
-    //     "hsl(344, 0%, 8%)",
-    //     "hsl(0, 0%, 6%)",
-    //   ]}
-    //   locations={[0, 22, 34, 43, 52, 61, 70, 81, 100]}
-    //   start={{ x: 1, y: 0 }}
-    //   end={{ x: 0, y: 0.7 }}
-    // >
-    <View style={cardStyles.background}>{children}</View>
-    // </LinearGradient>
+    <LinearGradient
+      style={cardStyles.background}
+      colors={["hsl(344, 4%, 13%)", "hsl(344, 4%, 14%)", "hsl(344, 4%, 15%)"]}
+      start={{ x: 1, y: 0.3 }}
+    >
+      {children}
+    </LinearGradient>
   );
 }
 const cardStyles = StyleSheet.create({
@@ -101,12 +92,7 @@ const cardStyles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     borderRadius: 6,
-    backgroundColor: "hsl(271, 5%, 14%)",
-    borderColor: "hsla(271, 40%, 60%)",
     borderWidth: 1,
-    shadowColor: "hsl(271, 5%, 9%)",
-    shadowOffset: { width: 2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+    borderColor: "hsl(344, 5%, 13%)",
   },
 });
