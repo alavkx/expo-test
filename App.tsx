@@ -6,10 +6,10 @@ export default function App() {
   const [pressed, setPressed] = React.useState(false);
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Pressable onPress={() => setPressed(true)} style={styles.button}>
-        <Text>Press me</Text>
+      <Pressable onPress={() => setPressed(true)} style={styles.buttonSecondary}>
+        <Text style={styles.text}>Press me</Text>
       </Pressable>
-      {pressed ? <Text>sekohara desu</Text> : null}
+      {pressed ? <Text style={styles.text}>sekohara desu</Text> : null}
     </ScrollView>
   );
 }
@@ -22,15 +22,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 8,
   },
-  button: {
+  buttonSecondary: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     fontSize: "1.5rem",
     borderRadius: 3,
+    borderWidth: 1,
+    borderColor: "#eee",
     paddingHorizontal: 16,
     height: 32,
     fontWeight: "bold",
-    backgroundColor: "#eee",
   },
+  text: {
+    color: "#eee"
+  }
 });
